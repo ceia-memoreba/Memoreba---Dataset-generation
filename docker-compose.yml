@@ -1,0 +1,17 @@
+version: '1'
+services: 
+  jupyter_lab:
+    container_name: vinicius-jupyter
+    build:
+      context: .
+      dockerfile: jupyter.Dockerfile
+    ports: 
+      - "60701:8888"
+    environment: 
+      - JUPYTER_ENABLE_LAB=yes
+    volumes: 
+      - ./code:/geracao-dataset-vinicius-container/code
+networks:
+  default:
+    external:
+      name: vinicius-network
